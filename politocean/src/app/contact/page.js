@@ -1,4 +1,4 @@
-import ContentPage from './ContentPage';
+import ContentPage from './ContactPage';
 
 export const metadata = {
     title: 'Contact Us - PoliTOcean',

@@ -41,7 +41,7 @@ const socialLinks = [
 
 function Header() {
   return (
-    <header className="static top-0 w-full z-[999] p-2 backdrop-blur-sm bg-blue-deep/85 border-b border-white/20">
+    <header className="site-header-wave static top-0 w-full z-[999] p-2">
       <nav className="max-w-[90%] mx-auto h-full flex items-center justify-between px-6">
         <Link href="/" aria-label="PoliTOcean home">
           <PoliTOceanLogo />
@@ -73,7 +73,7 @@ function Header() {
 
 function Footer() {
   return (
-    <footer className="bg-night py-20">
+    <footer className="site-footer-wave bg-night py-20">
       <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row justify-between gap-12">
         <div className="flex flex-col gap-6">
           <PoliTOceanLogo />

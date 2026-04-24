@@ -1,6 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap');
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Aileron";
+  src: url("/Fonts/Aileron-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src: url("/Fonts/Aileron-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src: url("/Fonts/Aileron-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src: url("/Fonts/Aileron-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme inline {
   --color-sea-light:   #deeff1;
   --color-ocean-dark:  #00324a;
@@ -13,8 +45,8 @@
   --gradient-brand: linear-gradient(90deg, #00679a, #349999);
   --gradient-text:  linear-gradient(90deg, #339999, #0076b0);
 
-  --font-aileron: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI",
-                  Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-aileron: "Aileron", -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   --radius-card: 24px;
   --radius-btn:  20px;
@@ -54,6 +86,35 @@ body {
   );
   box-shadow: 0 4px 10px 2px rgba(231,234,238,0.20);
   backdrop-filter: blur(35px);
+}
+
+.site-header-wave {
+  --header-wave-color: #00679a;
+  position: relative;
+  overflow: visible;
+  background: var(--header-wave-color);
+}
+
+.site-header-wave::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 34px;
+  pointer-events: none;
+  z-index: 5;
+  background: var(--header-wave-color);
+
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 34' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 0v20c13 8 27 8 40 0s27-8 40 0 27 8 40 0 27-8 40 0V0H0z'/%3E%3C/svg%3E");
+  -webkit-mask-repeat: repeat-x;
+  -webkit-mask-size: 160px 34px;
+  -webkit-mask-position: top left;
+
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 34' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 0v20c13 8 27 8 40 0s27-8 40 0 27 8 40 0 27-8 40 0V0H0z'/%3E%3C/svg%3E");
+  mask-repeat: repeat-x;
+  mask-size: 160px 34px;
+  mask-position: top left;
 }
 
 .btn-outline-sea {
@@ -219,8 +280,34 @@ body {
   white-space: nowrap;
 }
 
+.site-footer-wave {
+  position: relative;
+  background: var(--color-night);
+  overflow: visible;
+}
+
+.site-footer-wave::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -34px;
+  height: 34px;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 34' preserveAspectRatio='none'%3E%3Cpath fill='%231d1d1b' d='M0 34V14c13-8 27-8 40 0s27 8 40 0 27-8 40 0 27 8 40 0v20H0z'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 160px 34px;
+  background-position: top left;
+}
+
 @media (max-width: 767px) {
   body { overflow-x: hidden; }
+
+  .site-header-wave::after {
+    height: 24px;
+    background-size: 120px 24px;
+    mask-size: 120px 24px;
+  }
 
   .hero-title {
     font-size: 2em;
@@ -236,5 +323,12 @@ body {
   .section-title,
   .section-title-light {
     font-size: 2em;
+  }
+
+  .site-footer-wave::before {
+    top: -16px;
+    height: 16px;
+    background:
+      radial-gradient(circle at 16px 16px, var(--color-night) 16px, transparent 17px) 0 0 / 32px 16px repeat-x;
   }
 }
