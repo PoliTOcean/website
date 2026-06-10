@@ -20,7 +20,7 @@ const Organogram = dynamic(() => import('./components/Organogram'), {
 });
 
 const metrics = [
-    { label: "Members", value: "67" },
+    { label: "Members", value: "76" },
     { label: "Founded", value: "2017" },
     { label: "Competitions", value: "MATE ROV" },
 ];

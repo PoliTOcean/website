@@ -6,7 +6,7 @@ export default function PrototypesPage() {
         <section className="min-h-screen bg-ocean-dark py-20">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="mb-12">
-                <div className="w-16 h-1 rounded-fulll bg-gradient-to-r from-cyan-400 to-blue-500 mb-4" />
+                <div className="w-16 h-1 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 mb-4" />
                     <h1 className="text-5xl md:text-6xl font-extrabold text-white leading-tight">
                         Our Prototypes
                     </h1>
@@ -14,9 +14,9 @@ export default function PrototypesPage() {
                         Explore the vehicles we designed and tested with effort and dedication
                     </p>
                 </div>
-
-                <PrototypeCarousel prototypes={prototypes} />
             </div>
+
+            <PrototypeCarousel prototypes={prototypes} />
         </section>
     );
 }

@@ -60,8 +60,8 @@ function CompetitionCard({ comp, index }) {
     const [logoError, setLogoError] = useState(false);
 
     return (
-        <div className="flex-shrink-0 w-72 md:w-80 snap-start">
-            <div className="relative group rounded-2xl overflow-hidden border border-white/10 bg-white/5 hover:border-cyan-400/40 transition-all duration-300">
+        <div className="flex-shrink-0 w-72 md:w-80 snap-start flex flex-col">
+            <div className="relative group rounded-2xl overflow-hidden border border-white/10 bg-white/5 hover:border-cyan-400/40 transition-all duration-300 h-[19rem] flex flex-col">
                 <div className="relative h-44 overflow-hidden">
                     {comp.photo && !imgError ? (
                         <Image
@@ -89,7 +89,7 @@ function CompetitionCard({ comp, index }) {
                     </div>
                 </div>
 
-                <div className="p-4 flex items-start gap-4">
+                <div className="p-4 flex items-start gap-4 flex-1">
                     <div className="flex-shrink-0 w-14 h-14 rounded-xl overflow-hidden bg-white/5 border border-white/10 p-1 relative">
                         {!logoError ? (
                             <Image
@@ -116,7 +116,7 @@ function CompetitionCard({ comp, index }) {
                             </svg>
                             <span className="text-xs text-sea-light/50 truncate">{comp.location}</span>
                         </div>
-                        <h4 className="text-sm font-bold text-sea-light leading-snug">{comp.theme}</h4>
+                        <h4 className="text-sm font-bold text-sea-light leading-snug line-clamp-3">{comp.theme}</h4>
                     </div>
                 </div>
             </div>

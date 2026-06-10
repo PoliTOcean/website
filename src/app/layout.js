@@ -38,6 +38,8 @@ function Footer() {
                 key={label}
                 href={href}
                 aria-label={label}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-8 h-8 rounded-full border border-white/30 flex items-center justify-center text-sea-light/60 hover:text-white hover:border-white/70 transition-all text-xs"
               >
                 <img src={icon} alt={`${label} icon`} className="w-4 h-4 object-contain" />

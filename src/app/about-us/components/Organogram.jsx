@@ -118,15 +118,20 @@ function DivisionCard({ division, branchColor }) {
         cm: 'border-l-purple-400'
     };
 
+    const divisionCount =
+        (division.hod ? 1 : 0) +
+        (division.tod ? 1 : 0) +
+        (division.members?.length || 0);
+
     return (
-        <div className={`border-l-4 ${colorMap[branchColor]} bg-white/5 border border-white/10 rounded-lg overflow-hidden`}>
+        <div className={`border-l-4 ${colorMap[branchColor]} bg-white/5 border border-white/10 rounded-lg`}>
             <button
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="w-full px-4 py-3 flex items-center justify-between hover:bg-white/10 transition group"
+                className="w-full px-4 py-3 flex items-center justify-between hover:bg-white/10 transition group rounded-lg"
             >
                 <div className="text-left">
                     <h4 className="font-bold text-sea-light">{division.name}</h4>
-                    <div className="text-xs text-sea-light/60">{division.members?.length || 0} members</div>
+                    <div className="text-xs text-sea-light/60">{divisionCount} members</div>
                 </div>
                 <div className={`text-sea-light/60 group-hover:text-sea-light transition transform ${isExpanded ? 'rotate-180' : ''}`}>
                     ▼
@@ -207,16 +212,32 @@ function BranchSection({ branch }) {
 }
 
 export default function Organogram() {
-    const totalMembers =
-        1 +
-        teamData.branches.reduce((sum, branch) => {
-            return sum +
-                (branch.pm ? 1 : 0) +
-                (Array.isArray(branch.cto) ? branch.cto.length : (branch.cto ? 1 : 0)) +
-                branch.divisions.reduce((divSum, division) => {
-                    return divSum + (division.members?.length || 0);
-                }, 0);
-        }, 0);
+    const uniqueNames = new Set();
+    const addPerson = (person) => {
+        if (person?.name) uniqueNames.add(person.name.trim().toLowerCase());
+    };
+
+    addPerson(teamData.leader);
+    teamData.branches.forEach((branch) => {
+        addPerson(branch.pm);
+        if (Array.isArray(branch.cto)) branch.cto.forEach(addPerson);
+        else addPerson(branch.cto);
+        branch.divisions.forEach((division) => {
+            addPerson(division.hod);
+            addPerson(division.tod);
+            division.members?.forEach(addPerson);
+        });
+    });
+
+    const totalMembers = uniqueNames.size;
+
+    const divisionNames = new Set();
+    teamData.branches.forEach((branch) =>
+        branch.divisions.forEach((division) => {
+            if (division.name) divisionNames.add(division.name.trim().toLowerCase());
+        })
+    );
+    const totalDivisions = divisionNames.size;
 
     const orderedBranches = [
         teamData.branches.find(b => b.id === 'mate'),
@@ -251,7 +272,7 @@ export default function Organogram() {
 
             <div className="bg-white/5 border border-white/10 rounded-lg p-4 text-center">
                 <div className="text-sm text-sea-light/70">
-                    <span className="font-bold text-sea-light">{totalMembers} people</span> · <span className="font-bold text-sea-light">{teamData.branches.reduce((sum, b) => sum + b.divisions.length, 0)}</span> divisions
+                    <span className="font-bold text-sea-light">{totalMembers} people</span> · <span className="font-bold text-sea-light">{totalDivisions}</span> divisions
                 </div>
             </div>
         </div>
