@@ -7,7 +7,10 @@ const nextConfig = {
   allowedDevOrigins: [
     "192.168.56.1",
     "192.168.56.1:3000",
-    "localhost"
+    "localhost",
+    "*.ngrok-free.app",
+    "*.ngrok.app",
+    "*.ngrok.io"
   ]
 };
 
