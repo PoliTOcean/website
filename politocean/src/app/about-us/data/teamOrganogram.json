@@ -1,0 +1,429 @@
+{
+  "meta": {
+    "kicker": "Academic Year 2025 / 2026",
+    "title": "Team Organization Chart"
+  },
+  "leader": {
+    "name": "Carlo Stefano Secli",
+    "role": "Team Leader",
+    "linkedin": "https://linkedin.com/in/carlo-stefano-secli",
+    "photo": "foto/carlo-stefano-secli.jpg"
+  },
+  "branches": [
+    {
+      "id": "mate",
+      "color": "mate",
+      "label": "MATE Departement",
+      "divisions": [
+        {
+          "name": "Mechanical",
+          "hod": {
+            "name": "Alessandro Morra",
+            "linkedin": "https://www.linkedin.com/in/alessandro-morra-a06792372/"
+          },
+          "members": [
+            {
+              "name": "Vincenzo Gentile",
+              "linkedin": "https://www.linkedin.com/in/vincenzogentile02/",
+              "photo": "foto/vincenzo-gentile.jpg"
+            },
+            {
+              "name": "Michela Aru",
+              "photo": "foto/michela-aru.jpg"
+            },
+            {
+              "name": "Mahdi Nassereddine",
+              "linkedin": "https://www.linkedin.com/in/mahdi-nassereddine-a7aa1b277/"
+            },
+            {
+              "name": "Alberto Giordano"
+            },
+            {
+              "name": "Marco Leone"
+            },
+            {
+              "name": "Su Kalkan",
+              "linkedin": "https://www.linkedin.com/in/su-kalkan-394a40203/",
+              "photo": "foto/su-kalkan.jpg"
+            },
+            {
+              "name": "Emre Sarikaya"
+            },
+            {
+              "name": "Mostafa Akhdar",
+              "photo": "foto/mostafa-akhdar.jpg"
+            },
+            {
+              "name": "Rojo Dio Gonzalez"
+            }
+          ]
+        },
+        {
+          "name": "Electronic",
+          "hod": {
+            "name": "Rosario Giannì",
+            "linkedin": "https://linkedin.com/in/rosario-giarre",
+            "photo": "foto/rosario-gianni.jpg"
+          },
+          "tod": {
+            "name": "Marco Sbardella",
+            "linkedin": "https://www.linkedin.com/in/marco-sbardella-14b45a2a7/",
+            "photo": "foto/marco-sbardella.jpg"
+          },
+          "members": [
+            {
+              "name": "Samuele Moscatelli",
+              "linkedin": "https://linkedin.com/in/samuele-moscatelli",
+              "photo": "foto/samuele-moscatelli.jpg"
+            },
+            {
+              "name": "Dario Balsells",
+              "photo": "foto/dario-balsells.jpg"
+            },
+            {
+              "name": "Giorgio Piovano"
+            },
+            {
+              "name": "Antonio Riscica",
+              "photo": "foto/antonio-riscica.jpg"
+            },
+            {
+              "name": "Edgardo De Angelis",
+              "photo": "foto/edgardo-de-angelis.jpg"
+            },
+            {
+              "name": "Pietro Canta",
+              "linkedin": "https://www.linkedin.com/in/pietro-canta/"
+            },
+            {
+              "name": "Dawit Pinto",
+              "linkedin": "https://www.linkedin.com/in/dawitpinto/"
+            },
+            {
+              "name": "Rossella Affatato",
+              "photo": "foto/rossella-affatato.jpg"
+            },
+            {
+              "name": "Andrea Ballarati",
+              "linkedin": "https://www.linkedin.com/in/andrea-ballarati-a206a11a0/"
+            }
+          ]
+        },
+        {
+          "name": "Firmware",
+          "hod": {
+            "name": "Davide Colabella",
+            "linkedin": "https://www.linkedin.com/in/davide-colabella-a51017164/",
+            "photo": "foto/davide-colabella.jpg"
+          },
+          "members": [
+            {
+              "name": "Filippo Benevenga",
+              "linkedin": "https://www.linkedin.com/in/filippobenevenga2002/?locale=it_IT",
+              "photo": "foto/filippo-benevenga.jpg"
+            },
+            {
+              "name": "Marialuigia Brizzi"
+            },
+            {
+              "name": "Andrea D'Ambrosio"
+            }
+          ]
+        },
+        {
+          "name": "Hydrodynamic",
+          "hod": {
+            "name": "Vincenzo Segreto",
+            "linkedin": "https://www.linkedin.com/in/vincenzo-segreto-624a99229/",
+            "photo": "foto/vincenzo-segreto.jpg"
+          },
+          "members": [
+            {
+              "name": "Giuseppe Gentile",
+              "linkedin": "https://linkedin.com/in/luigi-gentile"
+            },
+            {
+              "name": "Giuseppe Forbice",
+              "linkedin": "https://linkedin.com/in/giuseppe-furbica"
+            },
+            {
+              "name": "Benicio Fernandez"
+            },
+            {
+              "name": "Alice Reano",
+              "linkedin": "https://www.linkedin.com/in/alice-reano-583532385/"
+            }
+          ]
+        },
+        {
+          "name": "Controls",
+          "hod": {
+            "name": "Marco Coronelli",
+            "linkedin": "https://www.linkedin.com/in/marco-coronelli-b11134257/"
+          },
+          "membersColumns": 2,
+          "members": [
+            {
+              "name": "Andrea Gozio",
+              "linkedin": "https://www.linkedin.com/in/andrea-enrico-paolo-gozio/"
+            },
+            {
+              "name": "Filippo Rosso"
+            },
+            {
+              "name": "Seida Dapaj"
+            },
+            {
+              "name": "Aleks Demir",
+              "linkedin": "https://www.linkedin.com/in/aleks-demir/"
+            },
+            {
+              "name": "Andrea Di Cataldo"
+            },
+            {
+              "name": "Ahmet Mete Ucar",
+              "linkedin": "https://www.linkedin.com/in/ahmet-mete-u%C3%A7ar-9b3b22170/"
+            },
+            {
+              "name": "Matteo Gibbin"
+            }
+          ]
+        }
+      ],
+      "pm": {
+        "name": "Samuele Rizza",
+        "role": "Project Manager",
+        "linkedin": "https://www.linkedin.com/in/samuelerizza/",
+        "photo": "foto/samuele-rizza.jpg"
+      },
+      "cto": [
+        {
+          "name": "Davide Colabella",
+          "role": "Chief Technical Officer",
+          "linkedin": "https://www.linkedin.com/in/davide-colabella-a51017164/",
+          "photo": "foto/davide-colabella.jpg"
+        },
+        {
+          "name": "Rosario Giannì",
+          "role": "Chief Technical Officer",
+          "linkedin": "https://linkedin.com/in/rosario-giarre",
+          "photo": "foto/rosario-gianni.jpg"
+        }
+      ]
+    },
+    {
+      "id": "rd",
+      "color": "rd",
+      "label": "R&D Departement",
+      "divisions": [
+        {
+          "name": "Mechanical",
+          "hod": {
+            "name": "Andrea Forte",
+            "linkedin": "https://linkedin.com/in/andrea-forte",
+            "photo": "foto/andrea-forte.jpg"
+          },
+          "tod": {
+            "name": "Fabio Montenovo",
+            "linkedin": "https://www.linkedin.com/in/fabio-montenovo-758007293/"
+          },
+          "members": [
+            {
+              "name": "Luca Magnani Capovani",
+              "linkedin": "https://www.linkedin.com/in/luca-magnani-capovani-3585981b2/"
+            },
+            {
+              "name": "Falco Viola",
+              "photo": "foto/falco-viola.jpg"
+            },
+            {
+              "name": "Rossella Falchi"
+            },
+            {
+              "name": "Alice Esposito"
+            }
+          ]
+        },
+        {
+          "name": "Electronic",
+          "hod": {
+            "name": "Lucrezia Caviasso",
+            "linkedin": "https://www.linkedin.com/in/lucrezia-caviasso-35533a3ab/",
+            "photo": "foto/lucrezia-caviasso.jpg"
+          },
+          "members": [
+            {
+              "name": "Enrico Morani"
+            },
+            {
+              "name": "Mateo Shehu"
+            },
+            {
+              "name": "Zoe Demuro",
+              "photo": "foto/zoe-demuro.jpg"
+            },
+            {
+              "name": "Gabriele Barone",
+              "photo": "foto/gabriele-barone.jpg"
+            }
+          ]
+        },
+        {
+          "name": "Firmware",
+          "hod": {
+            "name": "Davide Colabella",
+            "linkedin": "https://www.linkedin.com/in/davide-colabella-a51017164/",
+            "photo": "foto/davide-colabella.jpg"
+          },
+          "tod": {
+            "name": "Michele Carenini"
+          },
+          "members": [
+            {
+              "name": "Fabiana Firmiani"
+            },
+            {
+              "name": "Davide Indorato",
+              "linkedin": "https://www.linkedin.com/in/davide-indorato-14041234b/",
+              "photo": "foto/davide-indorato.jpg"
+            },
+            {
+              "name": "Valerio Mastropierro",
+              "photo": "foto/valerio-mastropierro.jpg"
+            }
+          ]
+        },
+        {
+          "name": "Hydrodynamic",
+          "hod": {
+            "name": "Luigi Gentile",
+            "linkedin": "https://linkedin.com/in/luigi-gentile"
+          },
+          "tod": {
+            "name": "Davide Gravante"
+          },
+          "members": [
+            {
+              "name": "Luigi Finocchiaro",
+              "linkedin": "https://www.linkedin.com/in/luigi-finocchiaro-1b61993a0/"
+            },
+            {
+              "name": "Valerio Tarantino",
+              "linkedin": "https://www.linkedin.com/in/valeriotarantino/",
+              "photo": "foto/valerio-tarantino.jpg"
+            },
+            {
+              "name": "Alessandro Brizi"
+            },
+            {
+              "name": "Giovanni Profita",
+              "photo": "foto/giovanni-profita.jpg"
+            },
+            {
+              "name": "Greta Di Vora",
+              "linkedin": "https://linkedin.com/in/greta-di-vara"
+            },
+            {
+              "name": "Manuel Gallipoli",
+              "linkedin": "https://www.linkedin.com/in/manuel-gallipoli-565b45317/?locale=it_IT"
+            },
+            {
+              "name": "Muriel Lovizio",
+              "linkedin": "https://www.linkedin.com/in/muriel-lovizio-9b31bb362/",
+              "photo": "foto/muriel-lovizio.jpg"
+            },
+            {
+              "name": "Silvia Giudici"
+            },
+            {
+              "name": "Simone Sutera"
+            }
+          ]
+        },
+        {
+          "name": "Materials",
+          "hod": {
+            "name": "Filippo Colocci"
+          },
+          "membersColumns": 2,
+          "members": [
+            {
+              "name": "Giorgia Sforza",
+              "linkedin": "https://www.linkedin.com/in/giorgia-sforza-0892022b6/",
+              "photo": "foto/giorgia-sforza.jpg"
+            },
+            {
+              "name": "Gabriele Varetto",
+              "photo": "foto/gabriele-varetto.jpg"
+            },
+            {
+              "name": "Ana Mocanu"
+            },
+            {
+              "name": "Matteo Balestrini"
+            },
+            {
+              "name": "Ece Keskin"
+            }
+          ]
+        }
+      ],
+      "pm": {
+        "name": "Giorgia Sforza",
+        "role": "Project Manager",
+        "linkedin": "https://www.linkedin.com/in/giorgia-sforza-0892022b6/",
+        "photo": "foto/giorgia-sforza.jpg"
+      },
+      "cto": {
+        "name": "Lucrezia Caviasso",
+        "role": "Chief Technical Officer",
+        "linkedin": "https://www.linkedin.com/in/lucrezia-caviasso-35533a3ab/",
+        "photo": "foto/lucrezia-caviasso.jpg"
+      }
+    },
+    {
+      "id": "cm",
+      "color": "cm",
+      "label": "Communication & Marketing",
+      "divisions": [
+        {
+          "name": "Graphic & Media",
+          "membersColumns": 2,
+          "members": [
+            {
+              "name": "Pierluigi Pisconti"
+            },
+            {
+              "name": "Emre Eke",
+              "linkedin": "https://linkedin.com/in/emre-eke"
+            },
+            {
+              "name": "Mattia Riccardi",
+              "linkedin": "https://www.linkedin.com/in/mattia-riccardi-78b226399/"
+            },
+            {
+              "name": "Maria Stefanescu"
+            }
+          ]
+        }
+      ],
+      "pm": {
+        "name": "Luca Magnani Capovani",
+        "role": "Project Manager",
+        "linkedin": "https://www.linkedin.com/in/luca-magnani-capovani-3585981b2/"
+      },
+      "cto": null
+    }
+  ],
+  "layout": {
+    "columns": [
+      [
+        "mate"
+      ],
+      [
+        "rd",
+        "cm"
+      ]
+    ]
+  }
+}

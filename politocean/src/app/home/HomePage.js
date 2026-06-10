@@ -5,7 +5,7 @@ import VideoSection from "./components/VideoSection";
 export default function HomePage() {
   return (
     <>
-      <VideoSection videoSource="/HomeAssets/Video-mp4compressed.mp4" title="A Sea of Possibilities"
+      <VideoSection videoSource="/HomeAssets/VideoIntroduttivo.mp4" title="A Sea of Possibilities"
         description={
           <>
             Versatile cost-effective <strong className="text-white">underwater drones</strong> capable of{' '}
@@ -31,12 +31,12 @@ export default function HomePage() {
             for Underwater Engineering.
           </>
         }
-        imageSource="/HomeAssets/Card-1-Image.png"
+        imageSource="/HomeAssets/ROVPoolHome.jpg"
         imageAlt="ROV water testing in the pool"
       >
         <p>
           We&apos;re a <strong className="text-ocean-dark">student team</strong> from the Polytechnic University
-          of Turin, made up of <strong className="text-ocean-dark">60 students</strong>, all united by a
+          of Turin, made up of <strong className="text-ocean-dark">67 students</strong>, all united by a
           profound passion for underwater robotics.
         </p>
         <p>
@@ -48,7 +48,7 @@ export default function HomePage() {
 
       <ContentCard
         title="What is a ROV?"
-        imageSource="/HomeAssets/Card-2-Image.png"
+        imageSource="/HomeAssets/ROVModelHome.jpg"
         imagePosition="right"
         imageAlt="ROV model"
         bgDark
@@ -67,7 +67,7 @@ export default function HomePage() {
 
       <ContentCard
         title="What makes a ROV useful?"
-        imageSource="/HomeAssets/Card-3-Image.png"
+        imageSource="/HomeAssets/NereoVideoHome.mp4"
         imagePosition="left"
         imageAlt="ROV underwater"
       >
@@ -89,7 +89,6 @@ export default function HomePage() {
         description="Explore our prototypes, where cutting-edge technology meets real-world impact!"
         linkText="Take a look"
         linkHref="/prototypes"
-        bgImage="/HomeAssets/Suggestion-Section-Image.png"
       />
     </>
   )

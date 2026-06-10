@@ -22,8 +22,14 @@ export default function ContactForm() {
                     Accept: 'application/json',
                 },
                 body: JSON.stringify({
-                    ...data,
                     access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+                    subject: "Contact from submission - PoliTOcean",
+                    from_name: "PoliTOcean Website",
+                    replyto: data.email,
+                    name: data['pers-info'],
+                    email: data.email,
+                    is_company: data.is_company ? "Yes" : "No",
+                    message: data.message,
                 }),
             });
 

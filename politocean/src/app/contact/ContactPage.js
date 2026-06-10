@@ -3,7 +3,7 @@ import ContactInfo from './components/ContactInfo'
 
 export default function ContactPage() {
   return (
-    <section className="min-h-screen bg-ocean-dark py-20">
+    <section className="footer-blend-fix min-h-screen bg-ocean-dark py-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-14">
           <div className="w-16 h-1 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 mb-4" />

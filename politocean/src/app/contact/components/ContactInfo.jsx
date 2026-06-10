@@ -1,4 +1,4 @@
-import { BuildingIcon, EmailIcon, LocationIcon } from "./Icons";
+import { EmailIcon, LocationIcon } from "./Icons";
 import InfoCard from "./InfoCard";
 
 export default function ContactInfo() {
@@ -10,10 +10,7 @@ export default function ContactInfo() {
 
             <InfoCard icon={LocationIcon} value="Corso Castelfidardo, 39" subtext="10129, Torino (TO)" footer="DET Electronics Department" />
 
-            <InfoCard icon={EmailIcon} label="Email for People" value="hello@politocean.com" href="mailto:hello@politocean.com" isEmail />
-
-            <InfoCard icon={BuildingIcon} label="Email for Companies" value="contact@politocean.com" href="mailto:contact@politocean.com" isEmail />
-
+            <InfoCard icon={EmailIcon} label="Contact Email" value="politocean@gmail.com" isEmail />
         </div>
     )
 }
