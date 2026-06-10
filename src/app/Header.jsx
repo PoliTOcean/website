@@ -5,6 +5,7 @@ import { useState } from "react";
 import PoliTOceanLogo from "./PoliTOceanLogo";
 
 const navLinks = [
+    { href: "/", label: "Home" },
     { href: "/prototypes", label: "Our Prototypes" },
     { href: "/about-us", label: "About Us" },
     { href: "/sponsors", label: "Sponsors" },
@@ -88,15 +89,6 @@ export default function Header() {
 
             {open && (
                 <ul className="md:hidden list-none flex flex-col gap-1 mt-2 px-6 pb-4 max-w-[90%] mx-auto">
-                    <li>
-                        <NavItem
-                            href="/"
-                            label="Home"
-                            block
-                            active={isLinkActive("/", pathname)}
-                            onClick={() => setOpen(false)}
-                        />
-                    </li>
                     {navLinks.map(({ href, label, isApply, external }) => (
                         <li key={href}>
                             <NavItem
