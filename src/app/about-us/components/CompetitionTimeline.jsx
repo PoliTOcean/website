@@ -60,7 +60,7 @@ function CompetitionCard({ comp, index }) {
     const [logoError, setLogoError] = useState(false);
 
     return (
-        <div className="flex-shrink-0 w-72 md:w-80 snap-start flex flex-col">
+        <div className="flex-shrink-0 w-[85vw] sm:w-72 md:w-80 snap-start flex flex-col">
             <div className="relative group rounded-2xl overflow-hidden border border-white/10 bg-white/5 hover:border-cyan-400/40 transition-all duration-300 h-[19rem] flex flex-col">
                 <div className="relative h-44 overflow-hidden">
                     {comp.photo && !imgError ? (

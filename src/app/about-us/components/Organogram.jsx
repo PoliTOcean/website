@@ -118,6 +118,13 @@ function DivisionCard({ division, branchColor }) {
         cm: 'border-l-purple-400'
     };
 
+    // Static classes so Tailwind's JIT can detect them (dynamic `grid-cols-${n}` is not compiled).
+    const columnsClassMap = {
+        1: 'grid-cols-1',
+        2: 'grid-cols-1 sm:grid-cols-2',
+        3: 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3'
+    };
+
     const divisionCount =
         (division.hod ? 1 : 0) +
         (division.tod ? 1 : 0) +
@@ -156,7 +163,7 @@ function DivisionCard({ division, branchColor }) {
                     {division.members && division.members.length > 0 && (
                         <div>
                             <div className="text-xs uppercase tracking-widest text-sea-light/70 mb-2 font-semibold">Team Members</div>
-                            <div className={`grid gap-2 ${division.membersColumns ? `grid-cols-${division.membersColumns}` : 'grid-cols-1'}`}>
+                            <div className={`grid gap-2 ${columnsClassMap[division.membersColumns] ?? 'grid-cols-1 sm:grid-cols-2'}`}>
                                 {division.members.map((member, idx) => (
                                     <PersonCard key={idx} role="Member" name={member.name} linkedin={member.linkedin} photo={member.photo} />
                                 ))}

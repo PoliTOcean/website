@@ -18,7 +18,7 @@ export default function ScrollToTopButton() {
     };
 
     return isVisible && (
-        <button onClick={scrollToTop} className="fixed bottom-8 right-8 z-[998] rounded-full w-14 h-14 items-center justify-center bg-sea-light text-ocean-dark hover:bg-teal transition-colors shadow-lg" aria-label="Scroll to top">
+        <button onClick={scrollToTop} className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-[998] rounded-full w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-sea-light text-ocean-dark hover:bg-teal transition-colors shadow-lg" aria-label="Scroll to top">
             <span className='text-2xl leading-none'>↑</span>
         </button>
     );

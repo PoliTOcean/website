@@ -63,7 +63,7 @@ export default function ModelDetailPage({ prototype }) {
                     </span>
                 </div>
 
-                    <div className="h-[60vh] lg:h-[70vh]">
+                    <div className="h-[320px] md:h-[60vh] lg:h-[70vh]">
                         {prototype.modelUrl ? (
                             <ModelViewer modelUrl={prototype.modelUrl} />
                         ) : (

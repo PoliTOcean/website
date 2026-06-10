@@ -17,11 +17,13 @@ function ease(t) {
   return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 }
 
+const SEGMENTS = 60;
+
 function drawWave(ctx, W, H, waveY, amp, freq, phase) {
   ctx.beginPath();
-  for (let i = 0; i <= 100; i++) {
-    const x = (i / 100) * W;
-    const t = i / 100;
+  for (let i = 0; i <= SEGMENTS; i++) {
+    const x = (i / SEGMENTS) * W;
+    const t = i / SEGMENTS;
     const y =
       waveY +
       Math.sin(t * Math.PI * 2 * freq + phase) * amp +
@@ -38,6 +40,7 @@ function drawWave(ctx, W, H, waveY, amp, freq, phase) {
 export default function WaveOverlay() {
   const { stage } = useTransitionState();
   const canvasRef = useRef(null);
+  const startLoopRef = useRef(null);
   const animRef = useRef({
     raf: null,
     phase: "idle",
@@ -58,6 +61,10 @@ export default function WaveOverlay() {
       a.phase = "out";
       a.startTs = null;
     }
+    // Wake the render loop only while a transition is active; it parks itself
+    // back to idle (no rAF) once the animation finishes, so it doesn't burn
+    // frames the rest of the time.
+    if (a.phase !== "idle") startLoopRef.current?.();
   }, [stage]);
 
   useEffect(() => {
@@ -66,11 +73,17 @@ export default function WaveOverlay() {
     const ctx = canvas.getContext("2d");
 
     function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.width = Math.round(window.innerWidth);
+      canvas.height = Math.round(window.innerHeight);
     }
     resize();
     window.addEventListener("resize", resize);
+
+    function startLoop() {
+      const a = animRef.current;
+      if (a.raf == null) a.raf = requestAnimationFrame(tick);
+    }
+    startLoopRef.current = startLoop;
 
     function tick(ts) {
       const a = animRef.current;
@@ -78,7 +91,8 @@ export default function WaveOverlay() {
       const H = canvas.height;
 
       if (a.phase === "idle") {
-        a.raf = requestAnimationFrame(tick);
+        // Nothing to animate: stop the loop entirely until the next transition.
+        a.raf = null;
         return;
       }
 
@@ -155,12 +169,16 @@ export default function WaveOverlay() {
       a.raf = requestAnimationFrame(tick);
     }
 
-    animRef.current.raf = requestAnimationFrame(tick);
+    // Kick off only if a transition is already in flight on mount; otherwise
+    // stay parked and let the stage effect wake the loop on demand.
+    if (animRef.current.phase !== "idle") startLoop();
 
     return () => {
       window.removeEventListener("resize", resize);
+      startLoopRef.current = null;
       const { raf } = animRef.current;
       if (raf) cancelAnimationFrame(raf);
+      animRef.current.raf = null;
     };
   }, []);
 

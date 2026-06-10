@@ -50,7 +50,7 @@ export default function ContactForm() {
     }
 
     return (
-        <div className="bg-white border border-white/10 rounded-2xl p-8 md:p-10 flex flex-col gap-6">
+        <div className="bg-white border border-white/10 rounded-2xl p-4 sm:p-8 md:p-10 flex flex-col gap-6">
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                 <FormField id="pers-info" label="Your Name and Surname" type="text" name="pers-info" placeholder="Your Name and Surname" required />
                 <FormField id="email" label="Your E-mail" type="email" name="email" placeholder="Your Email" required />

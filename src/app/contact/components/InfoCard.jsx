@@ -1,6 +1,6 @@
 export default function InfoCard({ icon: Icon, label, value, href, isEmail, subtext, footer }) {
     const content = isEmail ? (
-        <a href={href} className="text-white hover:text-sea-light/60 transition-colors text-sm">
+        <a href={href ?? `mailto:${value}`} className="text-white hover:text-sea-light/60 transition-colors text-sm">
             {value}
         </a>
     ) : (
