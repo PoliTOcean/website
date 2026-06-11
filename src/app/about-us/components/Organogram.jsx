@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import teamData from '../data/teamOrganogram.json';
 
 const variants = {
@@ -21,8 +21,8 @@ function getInitials(name) {
 
 function Avatar({ name, photo, size = 'sm' }) {
     const [imgError, setImgError] = useState(false);
-    const sizeClass = size === 'lg' ? 'w-20 h-20 text-base' : 'w-10 h-10 text-xs';
-    const sizePx = size === 'lg' ? 80 : 40;
+    const sizeClass = size === 'lg' ? 'w-20 h-20 text-base' : 'w-10 h-10 md:w-12 md:h-12 text-xs';
+    const sizePx = size === 'lg' ? 80 : 48;
 
     if (photo && !imgError) {
         return (
@@ -47,39 +47,56 @@ function Avatar({ name, photo, size = 'sm' }) {
 }
 
 function PersonCard({ role, name, linkedin, photo, variant = 'default' }) {
-    const [hovered, setHovered] = useState(false);
+    const [open, setOpen] = useState(false);
     const timeoutRef = useRef(null);
 
+    // Hover (desktop pointers) with a small close delay so the cursor can
+    // travel onto the popup without it disappearing.
     const handleMouseEnter = () => {
         clearTimeout(timeoutRef.current);
-        setHovered(true);
+        setOpen(true);
     };
 
     const handleMouseLeave = () => {
-        timeoutRef.current = setTimeout(() => {
-            setHovered(false);
-        }, 50);
+        timeoutRef.current = setTimeout(() => setOpen(false), 50);
     };
+
+    // Tap toggle: on touch devices mouse events are unreliable (need a double
+    // tap), so toggle explicitly on click and let an outside click close it.
+    const handleClick = (e) => {
+        e.stopPropagation();
+        setOpen((v) => !v);
+    };
+
+    // Close the popup when tapping/clicking anywhere outside the card.
+    useEffect(() => {
+        if (!open) return;
+        const close = () => setOpen(false);
+        document.addEventListener('click', close);
+        return () => document.removeEventListener('click', close);
+    }, [open]);
 
     return (
         <div
-            className={`${variants[variant]} relative`}
+            className={`${variants[variant]} relative cursor-pointer`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
+            onClick={handleClick}
         >
             <div className="flex items-center gap-2">
                 <Avatar name={name} photo={photo} />
                 <div className="min-w-0">
                     <div className="text-[10px] uppercase tracking-widest text-sea-light/60 font-semibold">{role}</div>
-                    <div className="text-xs font-bold text-sea-light truncate">{name}</div>
+                    <div className="text-xs md:text-sm font-bold text-sea-light leading-tight break-words md:whitespace-normal truncate md:overflow-visible">{name}</div>
                 </div>
             </div>
 
-            {hovered && (
+            {open && (
                 <div
                     className="absolute bottom-full left-0 mb-2 z-50 w-52 bg-[#0a1a24] border border-white/20 rounded-lg p-3 shadow-xl"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
+                    onClick={(e) => e.stopPropagation()}
                 >
                     <div className="flex items-center gap-3 mb-2">
                         <Avatar name={name} photo={photo} size="lg" />
