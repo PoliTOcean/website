@@ -1,36 +1,136 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PoliTOcean — Sito ufficiale
 
-## Getting Started
+Sito web del team **PoliTOcean**, team studentesco del **Politecnico di Torino**
+che progetta e costruisce ROV (Remotely Operated Vehicles) subacquei.
 
-First, run the development server:
+> _Individually we are one drop, together we are an Ocean._
+
+🌐 **Live:** [politocean.polito.it](https://politocean.polito.it)
+
+---
+
+## Stack tecnologico
+
+| Ambito        | Tecnologia |
+|---------------|------------|
+| Framework     | [Next.js 16](https://nextjs.org) (App Router) |
+| UI            | [React 19](https://react.dev) |
+| Styling       | [Tailwind CSS 4](https://tailwindcss.com) + CSS custom (`globals.css`) |
+| 3D            | [Three.js](https://threejs.org) via [@react-three/fiber](https://github.com/pmndrs/react-three-fiber) + [drei](https://github.com/pmndrs/drei) |
+| Animazioni    | [Framer Motion](https://www.framer.com/motion/) + canvas custom (transizioni a onde) |
+| Transizioni   | [next-transition-router](https://github.com/ismamz/next-transition-router) |
+| Componenti    | [@headlessui/react](https://headlessui.com), [@radix-ui](https://www.radix-ui.com) |
+
+---
+
+## Requisiti
+
+- **Node.js** 18.18+ (consigliato LTS più recente)
+- **npm** (o yarn/pnpm)
+
+## Avvio in locale
 
 ```bash
+# 1. Installa le dipendenze
+npm install
+
+# 2. Avvia il server di sviluppo
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Apri [http://localhost:3000](http://localhost:3000).
+Il sito si ricarica automaticamente a ogni modifica (Fast Refresh).
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Script disponibili
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Comando         | Descrizione |
+|-----------------|-------------|
+| `npm run dev`   | Server di sviluppo con hot-reload |
+| `npm run build` | Build di produzione ottimizzata |
+| `npm run start` | Avvia la build di produzione |
+| `npm run lint`  | Esegue ESLint |
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Struttura del progetto
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/app/
+├── layout.js              # Layout root: Header, Footer, ClientWrapper
+├── page.js                # Home
+├── globals.css            # Tema (colori, font, utility), animazioni
+├── Header.jsx             # Navbar + menu mobile (highlight pagina attiva)
+├── WaveOverlay.jsx        # Transizione a onde su canvas tra le pagine
+├── ClientWrapper.jsx      # Wrapper con TransitionRouter
+├── ScrollToTopButton.jsx
+│
+├── home/                  # Home page e sezioni
+├── prototypes/            # Lista ROV + pagina dettaglio con visualizzatore 3D
+│   └── [id]/              #   rotta dinamica per singolo prototipo
+├── about-us/             # Chi siamo, timeline competizioni, organigramma
+├── sponsors/             # Sponsor
+└── contact/              # Contatti e form
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+public/
+├── Fonts/                 # Font Aileron (self-hosted)
+├── *Assets/               # Immagini e media per pagina
+└── SocialLinksIcons/      # Icone social (footer)
+```
 
-## Deploy on Vercel
+I dati strutturati (prototipi, sponsor, organigramma) vivono in file
+`data/` dentro le rispettive cartelle, separati dai componenti.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Tema e stile
+
+I token di design (colori brand, raggi, font) sono definiti come variabili in
+[`src/app/globals.css`](src/app/globals.css) ed estesi in
+[`tailwind.config.mjs`](tailwind.config.mjs):
+
+- **Colori:** `sea-light`, `ocean-dark`, `teal`, `blue-deep`, `night`
+- **Font:** Aileron (self-hosted) + Poppins (Google Fonts)
+- Utility custom: `.drop-card`, `.section-title`, `.hero-title`, `.btn-outline-*`,
+  effetti onda di header/footer, bolle animate, ecc.
+
+---
+
+## Note di sviluppo
+
+- **Test su dispositivi reali (ngrok / LAN):** Next.js blocca le risorse di dev
+  da host esterni. Gli host consentiti sono in `allowedDevOrigins` dentro
+  [`next.config.mjs`](next.config.mjs) (LAN + wildcard `*.ngrok*`). Vale solo in
+  `next dev`, ignorato in produzione.
+- **Asset case-sensitive:** i percorsi degli asset in `public/` sono
+  case-sensitive sul server Linux. Usa il nome file esatto (anche maiuscole)
+  per evitare immagini mancanti in produzione.
+
+---
+
+## Deploy
+
+Il deploy è automatico tramite **GitHub Actions**
+([`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)): a ogni push su
+`master`, una action si collega via SSH al server e aggiorna il sito.
+
+```bash
+git pull
+npm install
+npm run build
+pm2 reload politocean-web
+```
+
+Secrets richiesti (Settings → Secrets and variables → Actions):
+`SERVER_IP`, `SERVER_USER`, `SSH_PRIVATE_KEY`.
+
+---
+
+## Contribuire
+
+1. Crea un branch dalla `master`.
+2. Sviluppa e verifica con `npm run build` (deve compilare senza errori).
+3. Apri una Pull Request.
+
+---
+
+<sub>Realizzato con 💙 dagli studenti del team PoliTOcean — Politecnico di Torino.</sub>
