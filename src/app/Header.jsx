@@ -11,6 +11,7 @@ const navLinks = [
     { href: "/sponsors", label: "Sponsors" },
     { href: "/contact", label: "Contact" },
     { href: "https://docs.google.com/forms/d/e/1FAIpQLSewUgpjOImd3k94r7mXvRcghCtQFcxoVYJwEX6NDvs_tkcraQ/viewform?usp=header", label: "Apply", isApply: true, external: true },
+    { href: "/donate", label: "Donate", isDonate: true },
 ];
 
 function isLinkActive(href, pathname) {
@@ -18,11 +19,15 @@ function isLinkActive(href, pathname) {
     return pathname === href || pathname.startsWith(`${href}/`);
 }
 
-function NavItem({ href, label, isApply, external, onClick, block, active }) {
+function NavItem({ href, label, isApply, isDonate, external, onClick, block, active }) {
     const base = `text-base transition-colors ${block ? "block w-full px-5 py-3" : "inline-block px-5 py-2.5"}`;
 
     let variant;
-    if (isApply) {
+    if (isDonate) {
+        variant = block
+            ? "font-normal text-ocean-dark bg-sea-light rounded-btn text-center hover:bg-sea-light/85"
+            : "font-normal text-ocean-dark bg-sea-light rounded-btn hover:bg-sea-light/85";
+    } else if (isApply) {
         variant = "font-light text-sea-light hover:text-ocean-dark/80";
     } else if (active) {
         variant = block
@@ -61,12 +66,13 @@ export default function Header() {
             </Link>
 
             <ul className="hidden md:flex list-none items-center gap-2 ml-auto">
-                {navLinks.map(({ href, label, isApply, external }) => (
+                {navLinks.map(({ href, label, isApply, isDonate, external }) => (
                 <li key={href}>
                     <NavItem
                         href={href}
                         label={label}
                         isApply={isApply}
+                        isDonate={isDonate}
                         external={external}
                         active={!external && isLinkActive(href, pathname)}
                     />
@@ -89,12 +95,13 @@ export default function Header() {
 
             {open && (
                 <ul className="md:hidden list-none flex flex-col gap-1 mt-2 px-6 pb-4 max-w-[90%] mx-auto">
-                    {navLinks.map(({ href, label, isApply, external }) => (
+                    {navLinks.map(({ href, label, isApply, isDonate, external }) => (
                         <li key={href}>
                             <NavItem
                                 href={href}
                                 label={label}
                                 isApply={isApply}
+                                isDonate={isDonate}
                                 external={external}
                                 block
                                 active={!external && isLinkActive(href, pathname)}

@@ -28,8 +28,10 @@ function Footer() {
             <p>Corso Castelfidardo, 39 – 10129 Torino TO</p>
             <p>politocean@gmail.com</p>
           </div>
-          <div className="flex flex-wrap gap-3 text-sm text-sea-light/70">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-sea-light/70">
             <span>© 2017–2026 PoliTOcean. All rights reserved.</span>
+            <span className="hidden sm:inline text-sea-light/40">·</span>
+            <a href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a>
           </div>
 
           <div className="flex items-center gap-4 pt-4">
