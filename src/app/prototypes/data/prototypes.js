@@ -7,10 +7,12 @@ export const prototypes = [
         description:
         "EVA is a compact, safety‑focused ROV designed for shallow‑water inspections, featuring shrouded thrusters, status LEDs, and over‑current/over‑voltage protection. It delivers stable control with heave, pitch, roll, and attitude control, plus onboard sensors like IMU and pressure, complemented by four cameras for reliable situational awareness.",
         image: "/ROVs/EVA.jpg",
-        modelUrl: null,
+        modelUrl: "/ROVs/EVA.glb",
+        // [x, y, z] rotation in radians to stand the CAD export upright (SolidWorks export is Z-up) and face the camera.
+        modelRotation: [-Math.PI / 2, 0, Math.PI],
         specs: [
             { label: "Build time and testing", value: "Over 5k hours of work" },
-            { label: "Total cost", value: "14000€" },
+            { label: "Total cost", value: "14000 €" },
             { label: "Mass", value: "17.6 kg" },
             { label: "ROV Dimensions", value: "LxWxH (mm) = 565x498x220" },
         ],
@@ -26,7 +28,7 @@ export const prototypes = [
         modelUrl: null,
         specs: [
             { label: "Build time and testing", value: "Over 12k hours of work" },
-            { label: "Total cost", value: "12000€" },
+            { label: "Total cost", value: "12000 €" },
             { label: "Mass", value: "15 kg" },
             { label: "ROV Dimensions", value: "LxWxH (mm) = 560x385x270" },
         ],

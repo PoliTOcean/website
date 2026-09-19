@@ -1,8 +1,9 @@
 import { Link } from "next-transition-router";
 import dynamic from "next/dynamic";
+import ModelLoading from "./components/ModelLoading";
 
 // three.js is heavy: load it only when a prototype actually has a model.
-const ModelViewer = dynamic(() => import("./components/ModelViewer"));
+const ModelViewer = dynamic(() => import("./components/ModelViewer"), { loading: ModelLoading });
 
 export default function ModelDetailPage({ prototype }) {
     return (
@@ -68,7 +69,7 @@ export default function ModelDetailPage({ prototype }) {
 
                     <div className="h-[320px] md:h-[60vh] lg:h-[70vh]">
                         {prototype.modelUrl ? (
-                            <ModelViewer modelUrl={prototype.modelUrl} />
+                            <ModelViewer modelUrl={prototype.modelUrl} modelRotation={prototype.modelRotation} />
                         ) : (
                             <div className="h-full w-full grid place-items-center text-sea-light/70">
                             <div className="text-center">
