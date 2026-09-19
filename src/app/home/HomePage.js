@@ -1,6 +1,7 @@
 import ContentCard from "./components/ContentCard";
 import SuggestionSection from "./components/SuggestionSection";
 import VideoSection from "./components/VideoSection";
+import { totalMembers } from "../about-us/data/teamStats";
 
 export default function HomePage() {
   return (
@@ -36,7 +37,7 @@ export default function HomePage() {
       >
         <p>
           We&apos;re a <strong className="text-ocean-dark">student team</strong> from the Polytechnic University
-          of Turin, made up of <strong className="text-ocean-dark">67 students</strong>, all united by a
+          of Turin, made up of <strong className="text-ocean-dark">{totalMembers} students</strong>, all united by a
           profound passion for underwater robotics.
         </p>
         <p>

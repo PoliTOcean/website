@@ -3,6 +3,7 @@ import ContentCard from "../home/components/ContentCard";
 import SuggestionSection from "../home/components/SuggestionSection";
 import CompetitionTimeline from "./components/CompetitionTimeline";
 import WorkflowSection from "./components/WorkflowSection";
+import { totalMembers } from "./data/teamStats";
 
 const Organogram = dynamic(() => import('./components/Organogram'), {
     loading: () => (
@@ -20,7 +21,7 @@ const Organogram = dynamic(() => import('./components/Organogram'), {
 });
 
 const metrics = [
-    { label: "Members", value: "76" },
+    { label: "Members", value: String(totalMembers) },
     { label: "Founded", value: "2017" },
     { label: "Competitions", value: "MATE ROV" },
 ];

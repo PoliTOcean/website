@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import teamData from '../data/teamOrganogram.json';
+import { totalDivisions, totalMembers } from '../data/teamStats';
 
 const variants = {
     default: 'bg-white/5 border border-white/10 rounded-lg p-3',
@@ -236,33 +237,6 @@ function BranchSection({ branch }) {
 }
 
 export default function Organogram() {
-    const uniqueNames = new Set();
-    const addPerson = (person) => {
-        if (person?.name) uniqueNames.add(person.name.trim().toLowerCase());
-    };
-
-    addPerson(teamData.leader);
-    teamData.branches.forEach((branch) => {
-        addPerson(branch.pm);
-        if (Array.isArray(branch.cto)) branch.cto.forEach(addPerson);
-        else addPerson(branch.cto);
-        branch.divisions.forEach((division) => {
-            addPerson(division.hod);
-            addPerson(division.tod);
-            division.members?.forEach(addPerson);
-        });
-    });
-
-    const totalMembers = uniqueNames.size;
-
-    const divisionNames = new Set();
-    teamData.branches.forEach((branch) =>
-        branch.divisions.forEach((division) => {
-            if (division.name) divisionNames.add(division.name.trim().toLowerCase());
-        })
-    );
-    const totalDivisions = divisionNames.size;
-
     const orderedBranches = [
         teamData.branches.find(b => b.id === 'mate'),
         teamData.branches.find(b => b.id === 'cm'),
