@@ -1,10 +1,13 @@
 import { Link } from "next-transition-router";
-import ModelViewer from "./components/ModelViewer";
+import dynamic from "next/dynamic";
+
+// three.js is heavy: load it only when a prototype actually has a model.
+const ModelViewer = dynamic(() => import("./components/ModelViewer"));
 
 export default function ModelDetailPage({ prototype }) {
     return (
         <section className="min-h-screen bg-ocean-dark text-sea-light">
-            <div className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-[1fr,1.2fr] gap-10">
+            <div className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-10">
                 <div className="space-y-6">
                 <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-sea-light/70">
                     Prototype

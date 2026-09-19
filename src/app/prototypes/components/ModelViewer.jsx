@@ -10,15 +10,6 @@ function Model({ url }) {
     return <primitive object={cloned} position={[0, -0.2, 0]} />;
 }
 
-function LoadingFallback() {
-    return (
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-sea-light/80 text-sm">
-            <div className="h-6 w-6 rounded-full border-2 border-sea-light/40 border-t-sea-light animate-spin mb-3" />
-            Loading 3D model...
-        </div>
-    );
-}
-
 export default function ModelViewer({ modelUrl }) {
     if (!modelUrl) {
         return (
@@ -52,8 +43,6 @@ export default function ModelViewer({ modelUrl }) {
                     maxDistance={5.5}
                 />
             </Canvas>
-
-            <Suspense fallback={<LoadingFallback />} />
         </div>
     );
 }

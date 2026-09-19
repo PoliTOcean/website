@@ -3,7 +3,7 @@ const WorkflowSection = () => {
         {
             index: "01",
             title: "MATE ROV",
-            desc: "The aim of the MATE area is to participate in the MATE ROV competition, an annual challenge held in the United States where univversities from around the world compete in tasks that replicate real-world underwater maintenance and exploration activities.",
+            desc: "The aim of the MATE area is to participate in the MATE ROV competition, an annual challenge held in the United States where universities from around the world compete in tasks that replicate real-world underwater maintenance and exploration activities.",
         },
         {
             index: "02",

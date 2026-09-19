@@ -1,11 +1,12 @@
+import Image from "next/image";
 import { Link } from "next-transition-router";
 
 export default function PrototypeCard({ name, description, image, slug }) {
     return (
         <Link href={`/prototypes/${slug}`} className="snap-start shrink-0">
             <article className="flex flex-col w-[85vw] sm:w-[70vw] md:w-[46vw] lg:w-[32vw] max-w-[420px] rounded-[28px] overflow-hidden bg-card-bg shadow-[0_12px_35px_rgba(0,50,74,0.30)] h-[460px] md:h-[520px] transition-transform duration-300 hover:-translate-y-1">
-                <div className="h-64 md:h-80 w-full shrink-0 bg-sea-light/40 overflow-hidden">
-                <img src={image} alt={name} className="h-full w-full object-cover" />
+                <div className="relative h-64 md:h-80 w-full shrink-0 bg-sea-light/40 overflow-hidden">
+                <Image src={image} alt={name} fill sizes="(max-width: 640px) 85vw, 420px" className="object-cover" />
                 </div>
 
                 <div className="p-6 flex-1 overflow-hidden">

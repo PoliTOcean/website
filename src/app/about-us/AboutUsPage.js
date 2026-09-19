@@ -75,7 +75,7 @@ export default function AboutUsPage() {
 
         <SuggestionSection
             title="Want to collaborate with us?"
-            description="Placeholder: sponsorships, partnerships, or student applications."
+            description="Sponsorships, partnerships or student applications: get in touch with us."
             linkText="Contact us"
             linkHref="/contact"
         />
