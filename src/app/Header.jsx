@@ -10,7 +10,7 @@ const navLinks = [
     { href: "/about-us", label: "About Us" },
     { href: "/sponsors", label: "Sponsors" },
     { href: "/contact", label: "Contact" },
-    { href: "https://docs.google.com/forms/d/e/1FAIpQLSewUgpjOImd3k94r7mXvRcghCtQFcxoVYJwEX6NDvs_tkcraQ/viewform?usp=header", label: "Apply", isApply: true, external: true },
+    { href: "https://forms.gle/wSkuQH84DqKWDomn7", label: "Apply", isApply: true, external: true },
     { href: "/donate", label: "Donate", isDonate: true },
 ];
 
