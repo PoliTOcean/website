@@ -25,7 +25,7 @@ export const prototypes = [
         description:
             "Originally developed as the first underwater vehicle by our team, this compact ROV features a tubular electronics housing and is designed for inspection operations at depths of up to 25 meters. Equipped with three cameras, including one remotely adjustable unit, and an integrated sonar system, it provides reliable situational awareness in a wide range of underwater environments. Over the years, the platform has undergone multiple upgrades and redesigns, becoming the team's primary test bench for evaluating and validating new technologies.",
         image: "/ROVs/NEREO.jpg",
-        modelUrl: null,
+        modelUrl: "/ROVs/NEREO.glb",
         specs: [
             { label: "Build time and testing", value: "Over 12k hours of work" },
             { label: "Total cost", value: "12000 €" },

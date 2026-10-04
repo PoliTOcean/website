@@ -1,6 +1,6 @@
 "use client";
 
-import { Center, Environment, Html, OrbitControls, useGLTF } from "@react-three/drei";
+import { Center, Environment, Html, TrackballControls, useGLTF } from "@react-three/drei";
 import { Canvas, useThree } from "@react-three/fiber";
 import { Suspense, useEffect, useMemo } from "react";
 import { Box3, NeutralToneMapping, PMREMGenerator, Vector3 } from "three";
@@ -49,20 +49,19 @@ export default function ModelViewer({ modelUrl, modelRotation }) {
 
     return (
         <div className="relative w-full h-full">
-            <Canvas camera={{ position: [1.8, 1, 1.8], fov: 40 }} dpr={[1, 2]} gl={{ antialias: true, toneMapping: NeutralToneMapping }} >
+            <Canvas camera={{ position: [2.3, 1.3, 2.3], fov: 40, near: 0.3, far: 20 }} dpr={[1, 2]} gl={{ antialias: true, toneMapping: NeutralToneMapping }} >
                 {/* Lighting knobs: raise/lower these if the model looks too dark/washed out. */}
-                <StudioEnvironment intensity={0.6} />
-                <directionalLight position={[4, 6, 4]} intensity={0.4} />
+                <StudioEnvironment intensity={0.4} />
+                <directionalLight position={[4, 6, 4]} intensity={0.25} />
 
                 <Suspense fallback={<Html fullscreen><ModelLoading /></Html>}>
                     <Model url={modelUrl} rotation={modelRotation} />
                 </Suspense>
 
-                <OrbitControls
-                    enablePan={false}
-                    enableZoom
-                    enableDamping
-                    dampingFactor={0.08}
+                <TrackballControls
+                    noPan
+                    rotateSpeed={2.5}
+                    staticMoving
                     minDistance={1.2}
                     maxDistance={5.5}
                 />
